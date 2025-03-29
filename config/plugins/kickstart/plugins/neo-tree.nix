@@ -8,6 +8,7 @@
       window = {
         mappings = {
           "\\" = "close_window";
+          "o" = "open";
         };
       };
     };
@@ -16,10 +17,10 @@
   # https://nix-community.github.io/nixvim/keymaps/index.html
   keymaps = [
     {
-      key = "\\";
-      action = "<cmd>Neotree reveal<cr>";
+      key = "<leader>nt";
+      action = "<cmd>Neotree toggle reveal<cr>";
       options = {
-        desc = "NeoTree reveal";
+        desc = "NeoTree toggle reveal";
       };
     }
   ];

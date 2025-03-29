@@ -40,7 +40,7 @@
   # and language tooling communicate in a standardized fashion.
   #
   # In general, you have a "server" which is some tool built to understand a particular
-  # language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
+  # language (such as `gopls`, `lua_ls`, `rust-analyzer`, etc.). These Language Servers
   # (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
   # processes that communicate with some "client" - in this case, Neovim!
   #
@@ -71,28 +71,23 @@
     #  - settings: Override the default settings passed when initializing the server.
     #        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     servers = {
-      # clangd = {
-      #  enable = true;
-      #}
-      # gopls = {
-      #  enable = true;
-      #}
-      # pyright = {
-      #  enable = true;
-      #}
-      # rust_analyzer = {
-      #  enable = true;
-      #}
-      # ...etc. See `https://nix-community.github.io/nixvim/plugins/lsp` for a list of pre-configured LSPs
-      #
-      # Some languages (like typscript) have entire language plugins that can be useful:
-      #    `https://nix-community.github.io/nixvim/plugins/typescript-tools/index.html?highlight=typescript-tools#pluginstypescript-toolspackage`
-      #
-      # But for many setups the LSP (`tsserver`) will work just fine
-      # tsserver = {
-      #  enable = true;
-      #}
-
+      clangd = {
+       enable = true;
+      };
+      gopls = {
+       enable = true;
+      };
+      pyright = {
+       enable = true;
+      };
+      rust-analyzer = {
+        enable = true;
+        installCargo = true;
+        installRustc = true;
+      };
+      tsserver = {
+       enable = true;
+      };
       lua-ls = {
         enable = true;
 
@@ -241,7 +236,7 @@
 
     # This function gets run when an LSP attaches to a particular buffer.
     #   That is to say, every time a new file is opened that is associated with
-    #   an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
+    #   an lsp (for example, opening `main.rs` is associated with `rust-analyzer`) this
     #   function will be executred to configure the current buffer
     # NOTE: This is an example of an attribute that takes raw lua
     onAttach = ''
