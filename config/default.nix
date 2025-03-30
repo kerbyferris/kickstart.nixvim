@@ -329,6 +329,9 @@
     };
 
     lualine.enable = true;
+    dap = {
+      enable = true;
+    };
   };
 
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
