@@ -329,6 +329,7 @@
     };
 
     lualine.enable = true;
+
     dap = {
       enable = true;
     };
