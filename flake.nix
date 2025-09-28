@@ -33,6 +33,7 @@
         nixvimModule = {
           inherit pkgs;
           module = import ./config;
+
           extraSpecialArgs = {
           };
         };
@@ -42,7 +43,11 @@
           default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
         };
 
-        formatter = pkgs.alejandra;
+        formatter = with pkgs; [
+          alejandra
+          stylua
+          markdownlint
+        ];
 
         packages = {
           default = nvim;
